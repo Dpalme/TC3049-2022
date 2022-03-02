@@ -9,7 +9,7 @@ This documentation was developed as part of a programming activity for the <em>S
 
 == Overview
 
-The template method pattern is a behavioral design pattern. We define the algorithm as a two-part component; the first part is the body structure, which doesn't change, and the second part, which is a subset of instructions of the first part but with the ability to be interchangeable, e.i, with one body (first part) you can replace the only instructions that change(second part).
+The <b>template method pattern</b> is a The template method pattern is a behavioral design pattern. We define the algorithm as a two-part component; the first part is the body structure, which doesn't change, and the second part, which is a subset of instructions of the first part but with the ability to be interchangeable, e.i, with one body (first part) you can repalce the only the instructions that change(second part)..
 
 The UML diagram for this programming activity is as follows:
 
