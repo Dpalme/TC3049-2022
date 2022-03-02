@@ -28,3 +28,5 @@ To test the program, inside the +src+ folder type the following instruction at t
 - \R. Olsen. <em>Design Patterns in Ruby.</em> Addison-Wesley, 2007.
 
 - Ruby-Doc.org. <em>RDoc Markup Reference.</em> {\http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html}[http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html] Accessed March 1, 2022.
+
+- Refactoring Guru. <em>Template Method</em> {\https://refactoring.guru/design-patterns/template-method} Accessed March 1, 2022.
