@@ -14,7 +14,6 @@ class Twitter
     # ^ Hash to ensure no duplicate observers
   end
 
-  # Callable function to add to followers collection
   def addListener(other)
     @followers.store(other, other)
   end
