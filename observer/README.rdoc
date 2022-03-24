@@ -1,4 +1,4 @@
-= Observer Pattern
+= Template Method Pattern
 
 This documentation was developed as part of a programming activity for the <em>Software Design and Architecture</em> course (_Tc3049_), at the Tecnológico de Monterrey, Campus Estado de México.
 
@@ -9,7 +9,8 @@ This documentation was developed as part of a programming activity for the <em>S
 
 == Overview
 
-The <b>Observer pattern</b> is a GoF creational design pattern that ensures a class only has one instance, and provides a global point of access to it.
+The <b>Observer pattern</b> is a behavioral design pattern. The pattern lets you specify a special relationship (Subscriber/Provider) within Two or more objects.  The pattern defines a provider and zero or more observers. The observers can register to providers, and when a predefined condition, event, or state change occurs in the provider, the provider is responsible to notify the observers by calling one of their methods. In this method call, the provider can send certain information (even his current state) in this call.
+
 
 The UML diagram for this programming activity is as follows:
 
@@ -21,6 +22,6 @@ To test the program, inside the +src+ folder type the following instruction at t
 
 == References
 
-- \R. Olsen. <em>Design Patterns in Ruby.</em> Addison-Wesley, 2007.
+- Ruby-Doc.org. <em>RDoc Markup Reference.</em> {\http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html}[http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html] Accessed March 1, 2022.
 
-- Microsoft. <em>Observer Design Pattern</em> [\https://docs.microsoft.com/en-us/dotnet/standard/events/observer-design-pattern#implementing-the-patternollection] Accessed August 10, 2022.
+- Microsoft. <em>Observer Design Pattern</em> [\https://docs.microsoft.com/en-us/dotnet/standard/events/observer-design-pattern#implementing-the-patternollection] Accessed March 10, 2022.
