@@ -25,7 +25,9 @@ class RemoteControlWithUndo
   end
 
   # Executes on command and updates undo variable
-  def on_button_was_pushed(slot)
+  def on_button_w
+    as_pushed(slot)
+
     @on_commands[slot].execute
     @undo_command = @on_commands[slot]
   end

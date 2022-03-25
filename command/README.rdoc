@@ -1,0 +1,25 @@
+= Command Pattern
+
+This documentation was developed as part of a programming activity for the <em>Software Design and Architecture</em> course (_Tc3049_), at the Tecnológico de Monterrey, Campus Estado de México.
+
+== Authors
+
+* *A01747290* <em>Diego Palmerin</em>
+* *A01748354* <em>Fernando Melgar</em>
+
+== Overview
+
+The <b>Command patter</b> is a behavioural design pattern that helps us to encapsulate different classes operations under a same name operation, in more technical words, the command patter helps us to encapsulate all the information and operations needed within a single homogeneous operation.
+The UML diagram for this programming activity is as follows:
+
+rdoc-image:img/command_patter_diagram.png
+
+To test the program, inside the +src+ folder type the following instruction at the command line:
+
+    ruby control_test.rb
+
+== References
+
+- Ruby-Doc.org. <em>RDoc Markup Reference.</em> {\http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html}[http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html] Accessed March 24, 2022.
+
+- Refactoring Guro. <em>Command pattern</em> {\http://refactoring.guru/design-patterns/command}[http://refactoring.guru/design-patterns/command] Accessed March 24, 2022.

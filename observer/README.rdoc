@@ -1,4 +1,4 @@
-= Template Method Pattern
+= Observer Pattern
 
 This documentation was developed as part of a programming activity for the <em>Software Design and Architecture</em> course (_Tc3049_), at the Tecnológico de Monterrey, Campus Estado de México.
 
@@ -24,4 +24,4 @@ To test the program, inside the +src+ folder type the following instruction at t
 
 - Ruby-Doc.org. <em>RDoc Markup Reference.</em> {\http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html}[http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html] Accessed March 1, 2022.
 
-- Microsoft. <em>Observer Design Pattern</em> [\https://docs.microsoft.com/en-us/dotnet/standard/events/observer-design-pattern#implementing-the-patternollection] Accessed March 10, 2022.
+- Microsoft. <em>Command pattern</em> {\http://docs.microsoft.com/en-us/dotnet/standard/events/observer-design-pattern#implementing-the-patternollection}[http://docs.microsoft.com/en-us/dotnet/standard/events/observer-design-pattern#implementing-the-patternollection] Accessed March 1, 2022.
