@@ -3,6 +3,7 @@ template_method_pattern/src/doc/*
 template_method_pattern/src/doc/*.*
 
 observer/doc
+command/doc
 *.tgz
 *.tar
 .idea
