@@ -1,0 +1,26 @@
+= Adapter Pattern
+
+This documentation was developed as part of a programming activity for the <em>Software Design and Architecture</em> course (_Tc3049_), at the Tecnológico de Monterrey, Campus Estado de México.
+
+== Authors
+
+* *A01747290* <em>Diego Palmerin</em>
+* *A01748354* <em>Fernando Melgar</em>
+
+== Overview
+
+The <b>Adapter Pattern</b> is a structural design pattern that allows objects with different interfaces and uses to colaborate.  The adapter pattern lets classes work together that couldn’t otherwise because of incompatible interfaces. We use the advantage that using interfaces lets us obscure the implementation, thus the client does not know how the operations he is requesting will be solved.
+
+rdoc-image:img/adapter_pattern.png
+
+To test the program, inside the +src+ folder type the following instruction at the command line:
+
+    ruby control_test.rb
+
+== References
+
+- Ruby-Doc.org. <em>RDoc Markup Reference.</em> {\http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html}[http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html] Accessed April 6, 2022.
+
+- Refactoring Guru. <em>Command pattern</em> {\http://refactoring.guru/design-patterns/adapter}[http://refactoring.guru/design-patterns/command] Accessed April 6, 2022.
+
+- Geeks for Geeks. <em>Adapter Pattern</em> {\https://www.geeksforgeeks.org/adapter-pattern/}[https://www.geeksforgeeks.org/adapter-pattern/]     Accessed April 6, 2022.

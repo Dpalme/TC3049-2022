@@ -4,7 +4,7 @@ template_method_pattern/src/doc/*.*
 
 observer/doc
 command/doc
+adapter/doc
 *.tgz
 *.tar
 .idea
-hidden_figures_equipo_dinamita.pdf
