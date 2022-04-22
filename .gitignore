@@ -5,6 +5,7 @@ template_method_pattern/src/doc/*.*
 observer/doc
 command/doc
 adapter/doc
+decorator/doc
 *.tgz
 *.tar
 .idea

@@ -1,0 +1,26 @@
+= Decorator pattern
+
+This documentation was developed as part of a programming activity for the <em>Software Design and Architecture</em> course (_Tc3049_), at the Tecnológico de Monterrey, Campus Estado de México.
+
+== Authors
+
+* *A01747290* <em>Diego Palmerin</em>
+* *A01748354* <em>Fernando Melgar</em>
+
+== Overview
+
+The <b>Decorator pattern</b>. attaches additional responsibilities to an object dynamically, it lets us decorate our classes at runtime using a form of object composition. The Decorator pattern provides a flexible alternative to subclassing for extending functionality, this pattern helps us to give objects new responsibilities without making any code changes to the underlying classes, including responsibilities that were not even thought of by the designer of the supperclass. Decorator classes mirror the type of the components they decorate, in fact, they are the same type that the object they decorate either through inheritance or with interface implementation.
+
+The UML diagram for this programming activity is as follows:
+
+rdoc-image:img/decorator_pattern.png
+
+To test the program, inside the +src+ folder type the following instruction at the command line:
+
+    ruby coffe_test.rb
+
+== References
+
+- Ruby-Doc.org. <em>RDoc Markup Reference.</em> {\http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html}[http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html] Accessed April 20 , 2022.
+
+- Oreilly. <em>Head First Design Patterns</em> {\http://learning.oreilly.com/library/view/head-first-design/9781492077992/ch03.html}[http://learning.oreilly.com/library/view/head-first-design/9781492077992/ch03.html] Accessed April 20, 2022.
