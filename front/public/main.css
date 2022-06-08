@@ -55,14 +55,29 @@
 }
 
 .answer {
-  background-color: #9b51e0;
+  --selected-color: #9b51e0;
+  background-color: transparent;
+}
+
+input[type="radio"] {
   cursor: pointer;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0 !important;
 }
 
-.answer:nth-child(2) {
-  background-color: #2f80ed;
+.answer.selected {
+  background-color: var(--selected-color);
+  color: var(--white)
 }
 
-.answer:nth-child(3) {
-  background-color: #f2994a;
+.answer:nth-of-type(2n) {
+  --selected-color: #2f80ed;
+}
+
+.answer:nth-of-type(3n) {
+  --selected-color: #f2994a;
 }

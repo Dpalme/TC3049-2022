@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TC3049 - Final Project</title>
+    <link rel="stylesheet" href="https://dpalmer.in/Peoria/css/peoria-0-6-2.min.css">
+    <link href="./main.css" rel="stylesheet">
+    <script src="https://dpalmer.in/Peoria/peoria-4.js"></script>
+  </head>
+  <body>
+    <nav class="night navbar">
+      <img height="32" scr="" alt="Logo">
+      <div class="navmenu">
+        <a class="navlink active" href="/quiz">Quiz</a>
+        <a class="navlink" href="/leaderboard">Leaderboard</a>
+      </div>
+    </nav>
+    <section class="section">
+      <h1>Kahoot 2</h1>
+      <div class="container text-c">
+        <form action="/quiz" method="POST">
+          <% @data.each_with_index do |entry, index| %>
+            <div class="mb-lg">
+              <p><%= index + 1 %> / <%= @n %></p>
+              <h2 class="card mb-lg"><%= entry["Question"] %></h2>
+              <div class="grid">
+                <% entry["Answers"].shuffle().each_with_index do |answer, number| %>
+                  <div class="col-t card relative answer">
+                    <input type="radio"
+                      name="<%= index %>" value="<%= answer["Correct"] %>">
+                      <h3><%= number + 1 %></h3>
+                      <p class="m-n"><%= answer["Text"] %></p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+          <input type="submit" value="Send">
+        </form>
+      </div>
+    </section>
+    <script>
+      const inputs = document.querySelectorAll(`input[type="radio"]`)
+      let last;
+      inputs.forEach(obj => {
+        obj.addEventListener('click', (ev) => {
+          const children = ev.currentTarget.parentElement.parentElement.children
+          Array.from(children).forEach(child => child.classList.remove('selected'))
+          if (ev.currentTarget.value)
+            ev.currentTarget.parentElement.classList.toggle('selected')
+        })
+      })
+    </script>
+  </body>
+</html>
