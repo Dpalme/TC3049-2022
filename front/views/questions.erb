@@ -17,10 +17,15 @@
     <section class="section">
       <h1>Kahoot 2</h1>
       <div class="container text-c">
+        <% i = 0 %>
         <form action="/quiz" method="POST">
           <% @data.each_with_index do |entry, index| %>
+            <label>
+              <input type="text" name="currentQuestion" value=<%= @current_question%>>
+            </label>
+            <% if index == i %>
             <div class="mb-lg">
-              <p><%= index + 1 %> / <%= @n %></p>
+              <p><%= @current_question + 1 %> / <%= @n %></p>
               <h2 class="card mb-lg"><%= entry["Question"] %></h2>
               <div class="grid">
                 <% entry["Answers"].shuffle().each_with_index do |answer, number| %>
@@ -33,6 +38,7 @@
                 <% end %>
               </div>
             </div>
+              <% end %>
           <% end %>
           <input type="submit" value="Send">
         </form>
