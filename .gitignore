@@ -6,6 +6,11 @@ observer/doc
 command/doc
 adapter/doc
 decorator/doc
+dsl/doc
+
+.DS_Store
+
+
 *.tgz
 *.tar
 .idea

@@ -17,12 +17,12 @@
     <section class="section">
         <h1>Kahoot 2</h1>
         <div class="container text-c">
-        <h2 class="card mb-lg">Final Score: <%= @score %> / <%= @numQuestions %></h2>
+        <h2 class="card mb-lg">Final Score: <%= @score %> / <%= @num_questions %></h2>
         <form action="/leaderboard" method="POST">
             <label for="username">Username</label>
             <input type="text" name="username" id="username" placeholder="username"/>
             <input type="hidden" value="<%= @score %>" id="score" name="score"/>
-            <input type="hidden" value="<%= @numQuestions %>" id="numQuestions" name="num_of_questions"/>
+            <input type="hidden" value="<%= @num_questions %>" id="numQuestions" name="num_of_questions"/>
             <input type="submit" value="Submit" class="mt-md"/>
         </form>
         </div>

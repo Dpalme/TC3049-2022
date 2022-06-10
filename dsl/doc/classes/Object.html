@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+<head>
+<title>Object</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<link href='../css/style.css' media='screen' rel='stylesheet' type='text/css'>
+<script type='text/javascript'>
+  function popupCode(url) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+  
+  function toggleCode(id) {
+    var code = document.getElementById(id)
+  
+    code.style.display = code.style.display != 'block' ? 'block' : 'none'
+    return true
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+</script>
+</head>
+<body class='page'>
+<div class='class' id='wrapper'>
+<div class='header'>
+<h1 class='name'><span class='type'>class</span>
+Object
+</h1>
+<ol class='paths'>
+<li>
+<a href="../files/src/jankenpon_rb.html">src/jankenpon.rb</a>
+</li>
+</ol>
+<div class='parent'>
+Superclass:
+<strong>BasicObject</strong>
+</div>
+</div>
+<div id='content'>
+<div id='text'>
+<div id='description'></div>
+<div id='method-list'>
+<h2>Methods</h2>
+<h3>Public Instance</h3>
+<ol>
+<li><a href="#method-i-_cmp">_cmp</a></li>
+<li><a href="#method-i-show">show</a></li>
+</ol>
+</div>
+<div id='context'>
+</div>
+<div id='section'>
+<div id='methods'>
+<h2>Public Instance methods</h2>
+<div class='method public-instance' id='method-method-i-_cmp'>
+<a name='method-i-_cmp'></a>
+<div class='synopsis'>
+<span class='name'>_cmp</span><span class='arguments'>(obj1, obj2, verb)</span>
+
+</div>
+<div class='description'>
+
+<p>Does the comparisson between two objects given a verb (winner|loser)</p>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-_cmp-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-_cmp-source'><span class="ruby-comment"># File src/jankenpon.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">_cmp</span>(<span class="ruby-identifier">obj1</span>, <span class="ruby-identifier">obj2</span>, <span class="ruby-identifier">verb</span>)
+  <span class="ruby-comment"># If they are the same, they tie</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">obj1</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">obj2</span>.<span class="ruby-identifier">to_sym</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{obj1} tie (#{verb} #{obj1})&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">obj1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># If it&#39;s wins don&#39;t have the other object, return false</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">obj1</span><span class="ruby-operator">::</span><span class="ruby-constant">WINS</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">obj2</span>.<span class="ruby-identifier">to_sym</span>)
+
+  <span class="ruby-comment"># Logs the action with corresponding verb</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{obj1} #{obj1::WINS.fetch(obj2.to_sym)} #{obj2}&quot;</span> <span class="ruby-operator">+</span>
+       <span class="ruby-node">&quot; (#{verb} #{verb == &#39;winner&#39; ? obj1 : obj2 })&quot;</span>
+  <span class="ruby-comment"># Returns the correct object given the verb</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">obj1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">verb</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;winner&#39;</span>
+
+  <span class="ruby-identifier">obj2</span>
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+<div class='method public-instance' id='method-method-i-show'>
+<a name='method-i-show'></a>
+<div class='synopsis'>
+<span class='name'>show</span><span class='arguments'>(res)</span>
+
+</div>
+<div class='description'>
+
+<p>Prints the result of the evaluation</p>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-show-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-show-source'><span class="ruby-comment"># File src/jankenpon.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>(<span class="ruby-identifier">res</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Result = #{res}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div id='footer-push'></div>
+</div>
+<div id='footer'>
+<a href="https://github.com/jeremyevans/hanna-nouveau"><strong>Hanna Nouveau</strong> RDoc template</a>
+</div>
+</body>
+</html>

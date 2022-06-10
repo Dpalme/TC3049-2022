@@ -4,7 +4,7 @@
 #          A01747290 Diego Palmerin
 #          A01748354 Fernando Melgar
 
-# Base class for controller
+# Base class for question
 class RemoteControlWithUndo
   # Array for commands on the on and off columns
   def initialize
@@ -244,7 +244,7 @@ end
 # offCommand = Proc.new do
 #   lamp.off
 # end
-# controller.set_command(0, onCommand, offCommand)
+# question.set_command(0, onCommand, offCommand)
 
 # This way, we're storing functions as functions instead of building
 # objects to act as functions
