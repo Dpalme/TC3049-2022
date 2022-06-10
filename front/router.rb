@@ -28,7 +28,7 @@ post "/leaderboard" do
     @error_message = "#{response.body}\n#{response.reason_phrase}"
     return erb :error
   end
-  @data = get_leaderboard
+  @data = $leaderboard_interactor.all
   erb :leaderboard
 end
 

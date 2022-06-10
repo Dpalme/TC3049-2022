@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="https://dpalmer.in/Peoria/css/peoria-0-6-2.min.css">
+  <link href="./main.css" rel="stylesheet">
+  <script src="https://dpalmer.in/Peoria/peoria-4.js"></script>
+</head>
+<body class="night">
+<nav class="night navbar">
+  <img height="32" scr="" alt="Logo">
+  <div class="navmenu">
+    <a class="navlink" href="/">Quiz</a>
+    <a class="navlink active" href="/leaderboard">Leaderboard</a>
+  </div>
+</nav>
+<section class="section">
+  <h1>Leaderboard</h1>
+  <table class="card white w-f">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Score / Number of Questions</th>
+      <th>Created</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @data.each_with_index do |entry, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= entry["username"] %></td>
+        <td><%= entry["score"].to_f %> / <%= entry["num_of_questions"].to_f %></td>
+        <td><%= entry["created"] %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</section>
+</body>
+</html>

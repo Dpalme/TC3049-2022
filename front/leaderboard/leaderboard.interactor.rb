@@ -12,6 +12,9 @@ class LeaderboardInteractor
 
   # Get all leaderboard_registries, order by score desc
   def all
-    @leaderboard_gateway.fetch_all
+    registries = @leaderboard_gateway.fetch_all
+    sorted = registries.sort { |a, b| b[:scores].to_f <=> a[:scores].to_f }
+    p sorted
+    sorted
   end
 end
