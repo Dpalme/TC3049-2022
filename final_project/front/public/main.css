@@ -57,6 +57,7 @@
 .answer {
   --selected-color: #9b51e0;
   background-color: transparent;
+  transition: all 0.3s linear;
 }
 
 input[type="radio"] {
