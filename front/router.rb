@@ -1,83 +1,89 @@
-require 'sinatra'
-require 'json'
-require 'faraday'
+require "sinatra"
+require "json"
+require "faraday"
 
-LEADERBOARD_GW = 'https://7vgoqpvl66.execute-api.us-east-1.amazonaws.com/default/leaderboard'
-QUESTIONS_GW = 'https://atw3z54ud4.execute-api.us-east-1.amazonaws.com/default/questions'
+LEADERBOARD_GW = "https://ialplejff9.execute-api.us-east-1.amazonaws.com/default/LeaderboardService"
+QUESTIONS_GW = "https://35y97qpr5j.execute-api.us-east-1.amazonaws.com/default/QuestionServer?n=1"
 
 set :sessions, true
 
-get '/' do
+get "/" do
   erb :index
 end
 
-get '/leaderboard' do
-  response = Faraday.get("#{LEADERBOARD_GW}/scores")
+def get_leaderboard
+  response = Faraday.get(LEADERBOARD_GW)
   @data = []
-  @data = JSON.parse response.body if response.success?
+  if response.success?
+    @data = JSON.parse(response.body).map do |entry|
+      JSON.parse entry
+    end
+  end
+  @data
+end
+
+get "/leaderboard" do
+  @data = get_leaderboard
   erb :leaderboard
 end
 
-post '/leaderboard' do
+post "/leaderboard" do
   conn = Faraday.new(
     url: LEADERBOARD_GW,
-    params: { param: '1' },
-    headers: { 'Content-Type' => 'application/json' },
+    headers: { "Content-Type" => "application/json" },
   )
 
-  response = conn.post('/') do |req|
-    req.body = { username: params[:username],
-                 score: params[:score],
-                 num_of_questions: params[:num_of_questions] }.to_json
+  response = conn.post("/default/LeaderboardService") do |req|
+    req.body = JSON.dump({ username: params[:username],
+                           score: params[:score].to_i,
+                           num_of_questions: params[:num_of_questions].to_i })
   end
-
+  p response
+  if !response.success?
+    @errorMessage = "#{response.body}\n#{response.reason_phrase}"
+    return erb :error
+  end
+  @data = get_leaderboard
   erb :leaderboard
 end
 
-get '/quiz' do
-  session[:questions] = fetch_questions # TODO: Aquí hacer el fetch correcto de datos.
-  session[:total] = params[:total].nil? ? 10 : params[:total].to_i
+get "/quiz" do
+  session[:questions] = fetch_questions params[:total]
+  if params[:total].to_i < session[:questions].length
+    session[:total] = session[:questions].length
+  else
+    session[:total] = params[:total].nil? ? 10 : params[:total].to_i
+  end
   session[:score] = 0
-  erb redirect '/quiz/inProgress?current=0'
+  erb redirect "/quiz/inProgress?current=0"
 end
 
-get '/quiz/inProgress' do
-  @current_question = params['current'].to_i
+get "/quiz/inProgress" do
+  @current_question = params["current"].to_i
   @n = session[:total]
-  @data = [session[:questions][@current_question]] # Lo meto en un arreglo para que siga funcionando con la lógica de antes
+  @data = session[:questions].at(@current_question)
   erb :questions
 end
 
-post '/quiz' do
-  session[:score] += 1
-  next_question = params['currentQuestion'].to_i + 1
+post "/quiz" do
+  session[:score] += params["question"] == "true" ? 1 : 0
+  next_question = params["currentQuestion"].to_i + 1
   if next_question < session[:total]
     redirect "/quiz/inProgress?current=#{next_question}"
   else
-    # Compute and save score
-    'You won'
+    @score = session[:score]
+    @numQuestions = session[:total]
+    erb :quizScore
   end
 end
 
-def fetch_questions
-  JSON.parse [
-               {
-                 "Question": "¿Tuleperaconlapapaya?",
-                 Answers: [
-                   { Text: "Sip", Correct: true },
-                   { Text: "Nop", Correct: false },
-                   { Text: "Tampoco", Correct: false }
-                 ]
-               },
-               {
-                 "Question": "¿Tuleperaconlapapaya2?",
-                 Answers: [
-                   { Text: "Sip", Correct: true },
-                   { Text: "Nop", Correct: false },
-                   { Text: "Tampoco", Correct: false }
-                 ]
-               }
-             ].to_json
+def fetch_questions(n)
+  response = Faraday.get(QUESTIONS_GW, { n: n })
+  if !response.success?
+    @errorMessage = "Something went wrong please try again"
+    return erb :error
+  end
+  JSON.parse response.body
 end
 
 =begin
@@ -97,24 +103,6 @@ get "/quiz" do
     return erb :error
   end
   response = Faraday.get(QUESTIONS_GW, { n: @n })
-  @data = JSON.parse [
-    {
-      "Question": "¿Tuleperaconlapapaya?",
-      Answers: [
-        { Text: "Sip", Correct: true },
-        { Text: "Nop", Correct: false },
-        { Text: "Tampoco", Correct: false },
-      ],
-    },
-    {
-      "Question": "¿Tuleperaconlapapaya2?",
-      Answers: [
-        { Text: "Sip", Correct: true },
-        { Text: "Nop", Correct: false },
-        { Text: "Tampoco", Correct: false },
-      ],
-    },
-  ].to_json
   # if response.success?
   #   @data = JSON.parse(response.body).map do |entry|
   #     JSON.parse(entry)

@@ -81,3 +81,12 @@ input[type="radio"] {
 .answer:nth-of-type(3n) {
   --selected-color: #f2994a;
 }
+
+.answer.correct {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.answer.incorrect {
+  background-color: var(--red);
+}

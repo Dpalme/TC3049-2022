@@ -10,7 +10,7 @@
     <nav class="night navbar">
       <img height="32" scr="" alt="Logo">
       <div class="navmenu">
-          <a class="navlink" href="/quiz">Quiz</a>
+          <a class="navlink" href="/">Quiz</a>
           <a class="navlink active" href="/leaderboard">Leaderboard</a>
       </div>
     </nav>
@@ -26,14 +26,14 @@
               </tr>
           </thead>
           <tbody>
-              <% @data.each_with_index do |entry, index| %>
-              <tr>
-                  <td><%= entry.index + 1 %></td>
-                  <td><%= entry.username %></td>
-                  <td><%= entry.score %> / <%= entry.num_of_questions %></td>
-                  <td><%= entry.created %></td>
-              </tr>
-              <% end %>
+            <% @data.each_with_index do |entry, index| %>
+            <tr>
+                <td><%= index + 1 %></td>
+                <td><%= entry["username"] %></td>
+                <td><%= entry["score"] %> / <%= entry["num_of_questions"] %></td>
+                <td><%= entry["created"] %></td>
+            </tr>
+            <% end %>
           </tbody>
       </table>
     </section>

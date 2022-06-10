@@ -10,7 +10,7 @@
     <nav class="night navbar">
         <img height="32" scr="" alt="Logo">
         <div class="navmenu">
-            <a class="navlink active" href="/quiz">Quiz</a>
+            <a class="navlink active" href="/">Quiz</a>
             <a class="navlink" href="/leaderboard">Leaderboard</a>
         </div>
     </nav>
@@ -18,11 +18,11 @@
         <h1>Kahoot 2</h1>
         <div class="container text-c">
         <h2 class="card mb-lg">Final Score: <%= @score %> / <%= @numQuestions %></h2>
-        <form action="/leaderboard" action="POST">
+        <form action="/leaderboard" method="POST">
             <label for="username">Username</label>
-            <input type="text" id="username" placeholder="username"/>
+            <input type="text" name="username" id="username" placeholder="username"/>
             <input type="hidden" value="<%= @score %>" id="score" name="score"/>
-            <input type="hidden" value="<%= @numQuestions %>" id="numQuestions" name="numQuestions"/>
+            <input type="hidden" value="<%= @numQuestions %>" id="numQuestions" name="num_of_questions"/>
             <input type="submit" value="Submit" class="mt-md"/>
         </form>
         </div>
