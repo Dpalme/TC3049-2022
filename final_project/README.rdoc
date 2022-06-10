@@ -48,6 +48,8 @@ rdoc-image:https://mermaid.ink/img/pako:eNptkl9PgzAUxb9K01f3gGa-kPiAg2SJKNnA-CCG
 
 === Process view
 
+rdoc-image:https://mermaid.ink/img/pako:eNpVkEFLxEAMhf9KyElh9w8UFVzahQURlnprPaSddHegM1PTjKBt_7vTtR7MKXnve4eXCdtgGDO8CA1XeMtrD2mep1f6bEgW2O-fiuoc7TeUSqLvm7_qh-qFybA0gcRsRrEac8k9two-uoYFQgcfkUe1wY8z5JWF83ZuofwWsvAAfs7_S49JguPd0XrqoWyDMAx04ftf6nijTn6ICnFk8eR4PuAOHYsja1KvaSVr1Cs7rjFLq-GOYq811n5JaBwMKRfGahDMOupH3iFFDeWXbzFTifwH5ZbSm9xGLT_iy2aC
+
 ==== Questions GET request flow
 rdoc-image:https://mermaid.ink/img/pako:eNpNjz0LwjAQhv9KuNVK94B1UHERpOhmHM7mqpHmUvMxaOl_N2IFb3qH53l5b4DGaQIJgR6JuKG1watHq1jkW3WGOM6ralYn8xI7tBeNUmw3R1EueTFwshfy-7ZOFKJxHMav90dnef6tkQL7vjMNfsjyHhyL0xkKsOQtGp03DB9bQbyRJQUyR00tpi4qUDxmNPUaI220ic6DbLELVACm6A5PbkBGn-gHTX9M1PgG1spPxg
 
@@ -90,7 +92,6 @@ rdoc-image:https://mermaid.ink/img/pako:eNplkbFuwyAQhl8FMcdLR4ZKiV1Zla5SrQxZWC7m
 
 === Scenarios (Use case view)
 
-rdoc-image:https://mermaid.ink/img/pako:eNpVkEFLxEAMhf9KyElh9w8UFVzahQURlnprPaSddHegM1PTjKBt_7vTtR7MKXnve4eXCdtgGDO8CA1XeMtrD2mep1f6bEgW2O-fiuoc7TeUSqLvm7_qh-qFybA0gcRsRrEac8k9two-uoYFQgcfkUe1wY8z5JWF83ZuofwWsvAAfs7_S49JguPd0XrqoWyDMAx04ftf6nijTn6ICnFk8eR4PuAOHYsja1KvaSVr1Cs7rjFLq-GOYq811n5JaBwMKRfGahDMOupH3iFFDeWXbzFTifwH5ZbSm9xGLT_iy2aC
 
 == Patterns used
 
