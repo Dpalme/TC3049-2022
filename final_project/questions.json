@@ -1,0 +1,376 @@
+[
+    {
+        "Question": "___, encompasses the study of how software is and ought to be built",
+        "Answers": [
+            {
+                "Text": "Software Engineering",
+                "Correct": true
+            },
+            {
+                "Text": "Civil Engineering",
+                "Correct": false
+            },
+            {
+                "Text": "Electrical Engineering",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "Software Engineering, encompasses the study of how ____ is and ought to be built",
+        "Answers": [
+            {
+                "Text": "software",
+                "Correct": true
+            },
+            {
+                "Text": "UI interfaces",
+                "Correct": false
+            },
+            {
+                "Text": "anarchist communes",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "The Interpreter pattern is which type of pattern?",
+        "Answers": [
+            {
+                "Text": "Behavioral",
+                "Correct": true
+            },
+            {
+                "Text": "Structural",
+                "Correct": false
+            },
+            {
+                "Text": "Logical",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "The Iterator pattern is which type of pattern?",
+        "Answers": [
+            {
+                "Text": "Behavioral",
+                "Correct": true
+            },
+            {
+                "Text": "Structural",
+                "Correct": false
+            },
+            {
+                "Text": "Logical",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "The Template method pattern is which type of pattern?",
+        "Answers": [
+            {
+                "Text": "Behavioral",
+                "Correct": true
+            },
+            {
+                "Text": "Structural",
+                "Correct": false
+            },
+            {
+                "Text": "Logical",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "The Visitor pattern is which type of pattern?",
+        "Answers": [
+            {
+                "Text": "Behavioral",
+                "Correct": true
+            },
+            {
+                "Text": "Structural",
+                "Correct": false
+            },
+            {
+                "Text": "Logical",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "The academic term for the opposite of a good pattern is an ___",
+        "Answers": [
+            {
+                "Text": "Anti-pattern",
+                "Correct": true
+            },
+            {
+                "Text": "eerie pattern",
+                "Correct": false
+            },
+            {
+                "Text": "awful pattern",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "The twitter homework was an implementation of the ___ pattern",
+        "Answers": [
+            {
+                "Text": "Observer",
+                "Correct": true
+            },
+            {
+                "Text": "State",
+                "Correct": false
+            },
+            {
+                "Text": "Mediator",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "The coffee shop homework was an implementation of the ___ pattern",
+        "Answers": [
+            {
+                "Text": "Decorator",
+                "Correct": true
+            },
+            {
+                "Text": "Command",
+                "Correct": false
+            },
+            {
+                "Text": "Builder",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "An AWS Lambda is an example of a ____ cloud service",
+        "Answers": [
+            {
+                "Text": "FaaS",
+                "Correct": true
+            },
+            {
+                "Text": "SaaS",
+                "Correct": false
+            },
+            {
+                "Text": "IaaS",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "The gang of ___ created 23 design patterns",
+        "Answers": [
+            {
+                "Text": "four",
+                "Correct": true
+            },
+            {
+                "Text": "12",
+                "Correct": false
+            },
+            {
+                "Text": "New York",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "The erb uses what language as a base?",
+        "Answers": [
+            {
+                "Text": "HTML",
+                "Correct": true
+            },
+            {
+                "Text": "Ruby",
+                "Correct": false
+            },
+            {
+                "Text": "Javascript",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "The ____ refactoring helps de-indent code by checking for failed conditions",
+        "Answers": [
+            {
+                "Text": "Guard Clause",
+                "Correct": true
+            },
+            {
+                "Text": "Method extraction",
+                "Correct": false
+            },
+            {
+                "Text": "Rename Symbol",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "The ____ refactoring helps de-indent code by checking for failed conditions",
+        "Answers": [
+            {
+                "Text": "Guard Clause",
+                "Correct": true
+            },
+            {
+                "Text": "Method extraction",
+                "Correct": false
+            },
+            {
+                "Text": "Rename Symbol",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "A ____ describes  when horizontal and vertical design elements are intermixed.",
+        "Answers": [
+            {
+                "Text": "Jumble",
+                "Correct": true
+            },
+            {
+                "Text": "Stivepipe Enterprise",
+                "Correct": false
+            },
+            {
+                "Text": "Wolf Ticket",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "A ___ is a product that claims openness and conformance to standards that have no enforceable meaning.",
+        "Answers": [
+            {
+                "Text": "Wolf Ticket",
+                "Correct": true
+            },
+            {
+                "Text": "Stivepipe Enterprise",
+                "Correct": false
+            },
+            {
+                "Text": "Jumble",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "A ___ is an excessively complex class interface.",
+        "Answers": [
+            {
+                "Text": "Swiss Army Knife",
+                "Correct": true
+            },
+            {
+                "Text": "Stivepipe Enterprise",
+                "Correct": false
+            },
+            {
+                "Text": "Jumble",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "Dead code and forgotten design information is frozen in an ever-changing design.",
+        "Answers": [
+            {
+                "Text": "Lava Flow",
+                "Correct": true
+            },
+            {
+                "Text": "The Blob",
+                "Correct": false
+            },
+            {
+                "Text": "Plotergeists",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "____ are classes with very limited roles and effective life cycles.",
+        "Answers": [
+            {
+                "Text": "Plotergeists",
+                "Correct": true
+            },
+            {
+                "Text": "The Blob",
+                "Correct": false
+            },
+            {
+                "Text": "Lava Flow",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "A ___ is a piece of software or hardware that serves no useful purpose on the current project.",
+        "Answers": [
+            {
+                "Text": "Boat Anchor",
+                "Correct": true
+            },
+            {
+                "Text": "The Blob",
+                "Correct": false
+            },
+            {
+                "Text": "Lava Flow",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "A ___ is a familiar technology or concept applied obsessively to many software problems.",
+        "Answers": [
+            {
+                "Text": "Golden Hammer",
+                "Correct": true
+            },
+            {
+                "Text": "The Blob",
+                "Correct": false
+            },
+            {
+                "Text": "Lava Flow",
+                "Correct": false
+            }
+        ]
+    },
+    {
+        "Question": "A ___ is reached by modifying a reusable component if the modified component is no longer maintained and supported by the supplier.",
+        "Answers": [
+            {
+                "Text": "Dead End",
+                "Correct": true
+            },
+            {
+                "Text": "The Blob",
+                "Correct": false
+            },
+            {
+                "Text": "Lava Flow",
+                "Correct": false
+            }
+        ]
+    },
+]

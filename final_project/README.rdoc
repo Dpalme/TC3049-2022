@@ -2,11 +2,9 @@
 
 This documentation was developed as part of the final project for the <em>Software Design and Architecture</em> course (_Tc3049_), at the Tecnológico de Monterrey, Campus Estado de México.
 
-== Authors
-
-* *A01747290* <em>Diego Palmerin</em>
-* *A01748354* <em>Fernando Melgar</em>
-
+Authors:: *A01747290* <em>Diego Palmerin</em>
+Authors:: *A01748354* <em>Fernando Melgar</em>
+Date::      10/06/2022
 == Overview
 
 The application consists of two cloud-native microservices and a client application. Everything was written in ruby 2.7.
@@ -63,16 +61,16 @@ rdoc-image:https://mermaid.ink/img/pako:eNpljz0PgjAQQP9Kc6sQ9g4s6kaiCY5djvbQmn5g
 
 === Development view
 
-    front
-        L public
-        |      L main.css
-        L views
-        |     L error.erb
-        |     L index.erb
-        |     L leaderboard.erb
-        |     L questions.erb
-        |     L quizScore.erb
-        L router.rb
+    front/
+        ├─ public/
+        |      └─ main.css
+        ├─ views/
+        |     ├─ error.erb
+        |     ├─ index.erb
+        |     ├─ leaderboard.erb
+        |     ├─ questions.erb
+        |     └─ quizScore.erb
+        └─ router.rb
 
 rdoc-image:https://mermaid.ink/img/pako:eNpNkEFrwzAMhf-K0Lm77OjjkrEdVhhZj76otpoKGnvYckcp-e91Qkx3kR7fe0hId3TRMxrMSsq90Jhoerm-2gAwgIHPw-Eb9qzn6GGIRSWMi9UZ6EnpSJmhiyGwU4lhcdY5sBeXYuZ0FcdwX3hzPmr5o1uDDQ9P0FD3HwH0pm5KDG8lS-Cc4SuO4p6JuclNrG3GHU6cJhJfb1znWdQzT2zRVOn5ROWiFm1YouXX183vXjQmNCe6ZN4hFY0_t-DQaCrcQturttT8AMRLaGw
 
