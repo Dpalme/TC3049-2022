@@ -1,14 +1,14 @@
-require 'singleton'
+require "singleton"
 require "faraday"
 
 CREATE_LEADERBOARD_GW = "https://2lzsjb9r4b.execute-api.us-east-1.amazonaws.com"
 LEADERBOARD_GW = "https://ialplejff9.execute-api.us-east-1.amazonaws.com/default/LeaderboardService"
 
-# Aws leaderboard API
+# Interface for the Leaderboard Microservice
 class LeaderboardAwsGateway
   include Singleton
 
-  # Creates a new leaderboard registry
+  # POSTs a new score to the leaderboard
   def create(leaderboard_registry)
     conn = Faraday.new(
       url: CREATE_LEADERBOARD_GW,
@@ -22,7 +22,7 @@ class LeaderboardAwsGateway
     end
   end
 
-  # Gets all Leaderboard scores
+  # Gets all scores from the leaderboard
   def fetch_all
     response = Faraday.get(LEADERBOARD_GW)
     p response

@@ -1,6 +1,6 @@
 # Leaderboard interactor class
 class LeaderboardInteractor
-  # Using dependency Injection principle we make more flexible our logic layer
+  # Using dependency Injection principle we make our logic layer more flexible
   def initialize(leaderboard_gateway)
     @leaderboard_gateway = leaderboard_gateway
   end
@@ -10,7 +10,7 @@ class LeaderboardInteractor
     @leaderboard_gateway.create leaderboard_registry
   end
 
-  # Get all leaderboard_registries, order by score desc
+  # Gets all leaderboard_registries, ordered by score desc
   def all
     @leaderboard_gateway.fetch_all
   end

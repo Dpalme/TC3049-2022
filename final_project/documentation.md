@@ -174,8 +174,21 @@ Since we are working with arrays of data, we're using an implementation of the i
 
 The client behaves very much like a finite-state machine. it has a finite number of functions which can be accessed through the url at will
 
+### Dependency Inyection
+
+We use .interactor classes for our data structures to generalize the interactions and give us flexibility to adapt our code. If, for example, we wanted to migrate to another database provider, we would only need to change the dependency we send to our interactor.
+
+### Singleton
+
+For our gateways we use singletons since creating a new instance of the gateway would be costly and might lead to problems preserving an updated application state.
+
 ## Acknowledgments (optional)
 
 ### Ariel Ortiz :)
 
 ## References
+
+ - https://github.com/ariel-ortiz/202211-tc3049.1/blob/main/DynamoDB/books/lambda_function.rb
+ - https://refactoring.guru/design-patterns/catalog
+ - https://www.scribd.com/document/84656947/Architectural-manifesto-Designing-software-architectures-Part-5
+ - https://rubydoc.info/gems/sinatra

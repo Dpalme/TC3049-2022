@@ -1,0 +1,130 @@
+= Final Project: Quiz Application with Microservices
+
+This documentation was developed as part of the final project for the <em>Software Design and Architecture</em> course (_Tc3049_), at the Tecnológico de Monterrey, Campus Estado de México.
+
+== Authors
+
+* *A01747290* <em>Diego Palmerin</em>
+* *A01748354* <em>Fernando Melgar</em>
+
+== Overview
+
+The application consists of two cloud-native microservices and a client application. Everything was written in ruby 2.7.
+
+The microservices are FaaS implementations running in the AWS Cloud and connected to their respective DynamoDB tables.
+
+=== UI/UX Design
+
+rdoc-image:img/Design.jpg
+
+We used Diego's Peoria css library to quickly implement a clean simple design while keeping our package size to a minimum. We took inspiration from neumorphism's principles to create a minimalist highly focused UI interface. 
+
+==== Technical Details
+
+The client application uses the web server framework Sinatra to handle client connections (routing, rendering, session handling) and Faraday to communicate with the backend microservices.
+
+The server uses sessions to handle the user flow and url parameters to pass information from one screen to another
+
+== How to install and run the application and all the microservices
+
+The microservices are already up and running in the AWS cloud, but if we were to take them down, all you would need to do is:
+
+1. Create an AWS Account
+2. Go to the DynamoDB Service and Create a new table
+3. Give whichever name you prefer for the Questions table
+4. Go to the Lambda Service and Create a new function
+5. Copy and paste the questions.rb code into the code tab
+6. Click on "Add Trigger" and add an API Gateway
+7. Create a new REST API gateway with an OPEN security policy
+8. Take note of the URL for the Gateway you just created
+9. Repeat steps 2-7 for the Leaderboard service
+10. Install the sinatra and faraday gems
+12. Replace the constants for the gateways with the ones you just created
+11. Run the router.rb program and go to http://localhost:4567
+
+== 4+1 architectural view model
+
+=== Logical view
+
+rdoc-image:https://mermaid.ink/img/pako:eNptkl9PgzAUxb9K01f3gGa-kPiAg2SJKNnA-CCGdPQym0A7b2-jhuy7i4yRja0vbc8595fbPy0vjQTu87IW1oZKbFE0uWbd6BUWg5CAGyNQtgedsRuliSk5bi2h0lvmLKAWDZzFbGnwXNGuKUxVfDmwpIy2U0yJIAgG-v60l9VQ0k5Ljsaox8rSe6DtN-AHO8z2CvDgXOAy-KFR2xhTs4VBhJKuIJZEu5QEOctGznDQ5Ik9sDvPm8iLdRRkUdh7txPvMQiLdbR6jdKs8-cXtc9RtkzC4iXJiiCOk7ceM_fuh8b4jDeAjVCye9G-nZzTJ3RPwv1uKaESrqac5_o_6nayu-hIKjLI_UrUFmZcODLpry65T-jgGBo-xpDa_wFcN62j
+
+=== Process view
+
+==== Questions GET request flow
+rdoc-image:https://mermaid.ink/img/pako:eNpNjz0LwjAQhv9KuNVK94B1UHERpOhmHM7mqpHmUvMxaOl_N2IFb3qH53l5b4DGaQIJgR6JuKG1watHq1jkW3WGOM6ralYn8xI7tBeNUmw3R1EueTFwshfy-7ZOFKJxHMav90dnef6tkQL7vjMNfsjyHhyL0xkKsOQtGp03DB9bQbyRJQUyR00tpi4qUDxmNPUaI220ic6DbLELVACm6A5PbkBGn-gHTX9M1PgG1spPxg
+
+==== Leaderboard GET request flow
+
+rdoc-image:https://mermaid.ink/img/pako:eNpljrsOwjAMRX8l8kqr7hm6QMXSDTbC4CYuBOVRUmdAqP9OUMvEnSzdc2y_QUdDIGGmZ6ag6WDxltCrIEr2zlLgum13PaGhNERMRvToB4NSHLuzaFbwvy5SvepS4DQ5q5FtDM1jjkFcrlCBp-TRmnL7_V2igO_kSYEso6ERs2MFKiwFzZNBps5YjgnkiG6mCjBzPL2CBskp0w_a_t-o5QPoJkwz
+
+==== Leaderboard POST request flow
+
+rdoc-image:https://mermaid.ink/img/pako:eNpljz0PgjAQQP9Kc6sQ9g4s6kaiCY5djvbQmn5gaQfT8N8tARe96Yb3Xu4ySK8IOMz0SuQknTTeA1rhWJmj0eRi3baHjlBRGDwGxTq0g0LOrpf-xhqWcZqMlhi1d81z9m7Z5H-lhOotydmvxPICFVgKFrUq9-Q1IiA-yJIAXlZFIyYTBQi3omlSGOmsdPQB-IhmpgowRd-_nQQeQ6IvtP-0U8sH9-9Ubg
+
+=== Development view
+
+    front
+        L public
+        |      L main.css
+        L views
+        |     L error.erb
+        |     L index.erb
+        |     L leaderboard.erb
+        |     L questions.erb
+        |     L quizScore.erb
+        L router.rb
+
+rdoc-image:https://mermaid.ink/img/pako:eNpNkEFrwzAMhf-K0Lm77OjjkrEdVhhZj76otpoKGnvYckcp-e91Qkx3kR7fe0hId3TRMxrMSsq90Jhoerm-2gAwgIHPw-Eb9qzn6GGIRSWMi9UZ6EnpSJmhiyGwU4lhcdY5sBeXYuZ0FcdwX3hzPmr5o1uDDQ9P0FD3HwH0pm5KDG8lS-Cc4SuO4p6JuclNrG3GHU6cJhJfb1znWdQzT2zRVOn5ROWiFm1YouXX183vXjQmNCe6ZN4hFY0_t-DQaCrcQturttT8AMRLaGw
+
+<em>Microservice Layer Diagram</em>
+
+=== Physical view
+
+rdoc-image:https://mermaid.ink/img/pako:eNplkbFuwyAQhl8FMcdLR4ZKiV1Zla5SrQxZWC7m0iIFqDBOZUV-94KDU6JscN_pvw_uynuniAs-BAzUaPzyaKrLi7SMdYJ1Iw1BOzuwD917N5C_6J4SBMGAUJE_OvTqCdeC7bXF4JHVZ002pOIyg3Xsmi4xv9mVE5rJonHNLkPYlhDQHBVm1B5KtP18Z20M_sXpnsuq6jVF3LNuhfaQCrO0_zaw2kCyKZ_06APJp8SlESSjEj45QXaC1QmyEzw4dUutXj74duQbbsgb1CouaVGVPHyTIclFPCo64XgOkks7x9bxR8Wpb0oH57k44XmgDccxuP1key6CH2ltyrvOXfMfy86kVA
+
+<em>Deployment Diagram</em>
+
+=== Scenarios (Use case view)
+
+rdoc-image:https://mermaid.ink/img/pako:eNpVkEFLxEAMhf9KyElh9w8UFVzahQURlnprPaSddHegM1PTjKBt_7vTtR7MKXnve4eXCdtgGDO8CA1XeMtrD2mep1f6bEgW2O-fiuoc7TeUSqLvm7_qh-qFybA0gcRsRrEac8k9two-uoYFQgcfkUe1wY8z5JWF83ZuofwWsvAAfs7_S49JguPd0XrqoWyDMAx04ftf6nijTn6ICnFk8eR4PuAOHYsja1KvaSVr1Cs7rjFLq-GOYq811n5JaBwMKRfGahDMOupH3iFFDeWXbzFTifwH5ZbSm9xGLT_iy2aC
+
+== Patterns used
+
+=== DSL
+
+Sinatra creates a DSL interface that abstracts away the server logic and focuses on creating route controllers
+
+=== MVC
+
+Sinatra follows the MVC design philosophy and implements embedded ruby for the templates.
+
+=== Iterator
+
+Since we are working with arrays of data, we're using an implementation of the iterator pattern. We implemented a pseudo-subset of this in our quiz flow where we loop over the questions received from the gateway.
+
+=== State
+
+The client behaves very much like a finite-state machine. it has a finite number of functions which can be accessed through the url at will
+
+=== Dependency Inyection
+
+We use .interactor classes for our data structures to generalize the interactions and give us flexibility to adapt our code. If, for example, we wanted to migrate to another database provider, we would only need to change the dependency we send to our interactor.
+
+=== Singleton
+
+For our gateways we use singletons since creating a new instance of the gateway would be costly and might lead to problems preserving an updated application state.
+
+== Acknowledgments (optional)
+
+=== Ariel Ortiz :)
+
+== References
+
+ - Ortiz A. <em>lambda_function.rb</em> https://github.com/ariel-ortiz/202211-tc3049.1/blob/main/DynamoDB/books/lambda_function.rb
+ - https://refactoring.guru/design-patterns/catalog
+ - https://www.scribd.com/document/84656947/Architectural-manifesto-Designing-software-architectures-Part-5
+ - https://rubydoc.info/gems/sinatra
+
+- Ruby-Doc.org. <em>RDoc Markup Reference.</em> {\http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html}[http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html] Accessed April 20 , 2022.
+
+- Oreilly. <em>Head First Design Patterns</em> {\http://learning.oreilly.com/library/view/head-first-design/9781492077992/ch03.html}[http://learning.oreilly.com/library/view/head-first-design/9781492077992/ch03.html] Accessed April 20, 2022.z

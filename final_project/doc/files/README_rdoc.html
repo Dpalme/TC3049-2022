@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+<head>
+<title>README.rdoc</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<link href='../css/style.css' media='screen' rel='stylesheet' type='text/css'>
+<script type='text/javascript'>
+  function popupCode(url) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+  
+  function toggleCode(id) {
+    var code = document.getElementById(id)
+  
+    code.style.display = code.style.display != 'block' ? 'block' : 'none'
+    return true
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+</script>
+</head>
+<body class='page'>
+<div class='file' id='wrapper'>
+<div class='header'>
+<h1 class='name'>README.rdoc
+</h1>
+<div class='paths'>
+README.rdoc
+</div>
+<div class='last-update'>
+Last Update:
+<span class='datetime'>2022-06-10 12:19:55 -0500</span>
+</div>
+</div>
+<div id='content'>
+<div id='text'>
+<div id='description'>
+<h1 id="label-Final+Project-3A+Quiz+Application+with+Microservices">Final Project: Quiz Application with Microservices<span><a href="#label-Final+Project-3A+Quiz+Application+with+Microservices">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>This documentation was developed as part of the final project for the <em>Software Design and Architecture</em> course (<em>Tc3049</em>), at the Tecnológico de Monterrey, Campus Estado de México.</p>
+
+<h2 id="label-Authors">Authors<span><a href="#label-Authors">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><strong>A01747290</strong> <em>Diego Palmerin</em></p>
+</li><li>
+<p><strong>A01748354</strong> <em>Fernando Melgar</em></p>
+</li></ul>
+
+<h2 id="label-Overview">Overview<span><a href="#label-Overview">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The application consists of two cloud-native microservices and a client application. Everything was written in ruby 2.7.</p>
+
+<p>The microservices are FaaS implementations running in the AWS Cloud and connected to their respective DynamoDB tables.</p>
+
+<h3 id="label-UI-2FUX+Design">UI/UX Design<span><a href="#label-UI-2FUX+Design">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><img src="img/Design.jpg"></p>
+
+<p>We used Diego&#39;s Peoria css library to quickly implement a clean simple design while keeping our package size to a minimum. We took inspiration from neumorphism&#39;s principles to create a minimalist highly focused UI interface. </p>
+
+<h4 id="label-Technical+Details">Technical Details<span><a href="#label-Technical+Details">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>The client application uses the web server framework Sinatra to handle client connections (routing, rendering, session handling) and Faraday to communicate with the backend microservices.</p>
+
+<p>The server uses sessions to handle the user flow and url parameters to pass information from one screen to another</p>
+
+<h2 id="label-How+to+install+and+run+the+application+and+all+the+microservices">How to install and run the application and all the microservices<span><a href="#label-How+to+install+and+run+the+application+and+all+the+microservices">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The microservices are already up and running in the AWS cloud, but if we were to take them down, all you would need to do is:</p>
+<ol><li>
+<p>Create an AWS Account</p>
+</li><li>
+<p>Go to the DynamoDB Service and Create a new table</p>
+</li><li>
+<p>Give whichever name you prefer for the Questions table</p>
+</li><li>
+<p>Go to the Lambda Service and Create a new function</p>
+</li><li>
+<p>Copy and paste the questions.rb code into the code tab</p>
+</li><li>
+<p>Click on “Add Trigger” and add an API Gateway</p>
+</li><li>
+<p>Create a new REST API gateway with an OPEN security policy</p>
+</li><li>
+<p>Take note of the URL for the Gateway you just created</p>
+</li><li>
+<p>Repeat steps 2-7 for the Leaderboard service</p>
+</li><li>
+<p>Install the sinatra and faraday gems</p>
+</li><li>
+<p>Replace the constants for the gateways with the ones you just created</p>
+</li><li>
+<p>Run the router.rb program and go to <a target="_top" href="http://localhost:4567">localhost:4567</a></p>
+</li></ol>
+
+<h2 id="label-4-2B1+architectural+view+model">4+1 architectural view model<span><a href="#label-4-2B1+architectural+view+model">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Logical+view">Logical view<span><a href="#label-Logical+view">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><img src="https://mermaid.ink/img/pako:eNptkl9PgzAUxb9K01f3gGa-kPiAg2SJKNnA-CCGdPQym0A7b2-jhuy7i4yRja0vbc8595fbPy0vjQTu87IW1oZKbFE0uWbd6BUWg5CAGyNQtgedsRuliSk5bi2h0lvmLKAWDZzFbGnwXNGuKUxVfDmwpIy2U0yJIAgG-v60l9VQ0k5Ljsaox8rSe6DtN-AHO8z2CvDgXOAy-KFR2xhTs4VBhJKuIJZEu5QEOctGznDQ5Ik9sDvPm8iLdRRkUdh7txPvMQiLdbR6jdKs8-cXtc9RtkzC4iXJiiCOk7ceM_fuh8b4jDeAjVCye9G-nZzTJ3RPwv1uKaESrqac5_o_6nayu-hIKjLI_UrUFmZcODLpry65T-jgGBo-xpDa_wFcN62j"></p>
+
+<h3 id="label-Process+view">Process view<span><a href="#label-Process+view">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="label-Questions+GET+request+flow">Questions GET request flow<span><a href="#label-Questions+GET+request+flow">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><img src="https://mermaid.ink/img/pako:eNpNjz0LwjAQhv9KuNVK94B1UHERpOhmHM7mqpHmUvMxaOl_N2IFb3qH53l5b4DGaQIJgR6JuKG1watHq1jkW3WGOM6ralYn8xI7tBeNUmw3R1EueTFwshfy-7ZOFKJxHMav90dnef6tkQL7vjMNfsjyHhyL0xkKsOQtGp03DB9bQbyRJQUyR00tpi4qUDxmNPUaI220ic6DbLELVACm6A5PbkBGn-gHTX9M1PgG1spPxg"></p>
+
+<h4 id="label-Leaderboard+GET+request+flow">Leaderboard GET request flow<span><a href="#label-Leaderboard+GET+request+flow">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><img src="https://mermaid.ink/img/pako:eNpljrsOwjAMRX8l8kqr7hm6QMXSDTbC4CYuBOVRUmdAqP9OUMvEnSzdc2y_QUdDIGGmZ6ag6WDxltCrIEr2zlLgum13PaGhNERMRvToB4NSHLuzaFbwvy5SvepS4DQ5q5FtDM1jjkFcrlCBp-TRmnL7_V2igO_kSYEso6ERs2MFKiwFzZNBps5YjgnkiG6mCjBzPL2CBskp0w_a_t-o5QPoJkwz"></p>
+
+<h4 id="label-Leaderboard+POST+request+flow">Leaderboard POST request flow<span><a href="#label-Leaderboard+POST+request+flow">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><img src="https://mermaid.ink/img/pako:eNpljz0PgjAQQP9Kc6sQ9g4s6kaiCY5djvbQmn5gaQfT8N8tARe96Yb3Xu4ySK8IOMz0SuQknTTeA1rhWJmj0eRi3baHjlBRGDwGxTq0g0LOrpf-xhqWcZqMlhi1d81z9m7Z5H-lhOotydmvxPICFVgKFrUq9-Q1IiA-yJIAXlZFIyYTBQi3omlSGOmsdPQB-IhmpgowRd-_nQQeQ6IvtP-0U8sH9-9Ubg"></p>
+
+<h3 id="label-Development+view">Development view<span><a href="#label-Development+view">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre>front
+    L public
+    |      L main.css
+    L views
+    |     L error.erb
+    |     L index.erb
+    |     L leaderboard.erb
+    |     L questions.erb
+    |     L quizScore.erb
+    L router.rb</pre>
+
+<p><img src="https://mermaid.ink/img/pako:eNpNkEFrwzAMhf-K0Lm77OjjkrEdVhhZj76otpoKGnvYckcp-e91Qkx3kR7fe0hId3TRMxrMSsq90Jhoerm-2gAwgIHPw-Eb9qzn6GGIRSWMi9UZ6EnpSJmhiyGwU4lhcdY5sBeXYuZ0FcdwX3hzPmr5o1uDDQ9P0FD3HwH0pm5KDG8lS-Cc4SuO4p6JuclNrG3GHU6cJhJfb1znWdQzT2zRVOn5ROWiFm1YouXX183vXjQmNCe6ZN4hFY0_t-DQaCrcQturttT8AMRLaGw"></p>
+
+<p><em>Microservice Layer Diagram</em></p>
+
+<h3 id="label-Physical+view">Physical view<span><a href="#label-Physical+view">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><img src="https://mermaid.ink/img/pako:eNplkbFuwyAQhl8FMcdLR4ZKiV1Zla5SrQxZWC7m0iIFqDBOZUV-94KDU6JscN_pvw_uynuniAs-BAzUaPzyaKrLi7SMdYJ1Iw1BOzuwD917N5C_6J4SBMGAUJE_OvTqCdeC7bXF4JHVZ002pOIyg3Xsmi4xv9mVE5rJonHNLkPYlhDQHBVm1B5KtP18Z20M_sXpnsuq6jVF3LNuhfaQCrO0_zaw2kCyKZ_06APJp8SlESSjEj45QXaC1QmyEzw4dUutXj74duQbbsgb1CouaVGVPHyTIclFPCo64XgOkks7x9bxR8Wpb0oH57k44XmgDccxuP1key6CH2ltyrvOXfMfy86kVA"></p>
+
+<p><em>Deployment Diagram</em></p>
+
+<h3 id="label-Scenarios+-28Use+case+view-29">Scenarios (Use case view)<span><a href="#label-Scenarios+-28Use+case+view-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><img src="https://mermaid.ink/img/pako:eNpVkEFLxEAMhf9KyElh9w8UFVzahQURlnprPaSddHegM1PTjKBt_7vTtR7MKXnve4eXCdtgGDO8CA1XeMtrD2mep1f6bEgW2O-fiuoc7TeUSqLvm7_qh-qFybA0gcRsRrEac8k9two-uoYFQgcfkUe1wY8z5JWF83ZuofwWsvAAfs7_S49JguPd0XrqoWyDMAx04ftf6nijTn6ICnFk8eR4PuAOHYsja1KvaSVr1Cs7rjFLq-GOYq811n5JaBwMKRfGahDMOupH3iFFDeWXbzFTifwH5ZbSm9xGLT_iy2aC"></p>
+
+<h2 id="label-Patterns+used">Patterns used<span><a href="#label-Patterns+used">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-DSL">DSL<span><a href="#label-DSL">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Sinatra creates a DSL interface that abstracts away the server logic and focuses on creating route controllers</p>
+
+<h3 id="label-MVC">MVC<span><a href="#label-MVC">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Sinatra follows the MVC design philosophy and implements embedded ruby for the templates.</p>
+
+<h3 id="label-Iterator">Iterator<span><a href="#label-Iterator">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Since we are working with arrays of data, we&#39;re using an implementation of the iterator pattern. We implemented a pseudo-subset of this in our quiz flow where we loop over the questions received from the gateway.</p>
+
+<h3 id="label-State">State<span><a href="#label-State">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The client behaves very much like a finite-state machine. it has a finite number of functions which can be accessed through the url at will</p>
+
+<h3 id="label-Dependency+Inyection">Dependency Inyection<span><a href="#label-Dependency+Inyection">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>We use .interactor classes for our data structures to generalize the interactions and give us flexibility to adapt our code. If, for example, we wanted to migrate to another database provider, we would only need to change the dependency we send to our interactor.</p>
+
+<h3 id="label-Singleton">Singleton<span><a href="#label-Singleton">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>For our gateways we use singletons since creating a new instance of the gateway would be costly and might lead to problems preserving an updated application state.</p>
+
+<h2 id="label-Acknowledgments+-28optional-29">Acknowledgments (optional)<span><a href="#label-Acknowledgments+-28optional-29">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Ariel+Ortiz+-3A-29">Ariel Ortiz :)<span><a href="#label-Ariel+Ortiz+-3A-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h2 id="label-References">References<span><a href="#label-References">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre>- Ortiz A. &lt;em&gt;lambda_function.rb&lt;/em&gt; https://github.com/ariel-ortiz/202211-tc3049.1/blob/main/DynamoDB/books/lambda_function.rb
+- https://refactoring.guru/design-patterns/catalog
+- https://www.scribd.com/document/84656947/Architectural-manifesto-Designing-software-architectures-Part-5
+- https://rubydoc.info/gems/sinatra</pre>
+<ul><li>
+<p>Ruby-Doc.org. <em>RDoc Markup Reference.</em> <a target="_top" href="http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html">http://ruby-doc.org/stdlib-2.4.1/libdoc/rdoc/rdoc/RDoc/Markup.html</a> Accessed April 20 , 2022.</p>
+</li><li>
+<p>Oreilly. <em>Head First Design Patterns</em> <a target="_top" href="http://learning.oreilly.com/library/view/head-first-design/9781492077992/ch03.html">http://learning.oreilly.com/library/view/head-first-design/9781492077992/ch03.html</a> Accessed April 20, 2022.z</p>
+</li></ul>
+</div>
+<div id='context'>
+</div>
+
+</div>
+</div>
+
+<div id='footer-push'></div>
+</div>
+<div id='footer'>
+<a href="https://github.com/jeremyevans/hanna-nouveau"><strong>Hanna Nouveau</strong> RDoc template</a>
+</div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 # Question class interactor, user injects the gateway use for query. May be inmemory, sql, aws, etc.
 class QuestionInteractor
 
-  # Using dependency Injection principle we make more flexible our logic layer
+  # Using dependency Injection principle we make our logic layer more flexible
   def initialize(question_gateway)
     @question_gateway = question_gateway
   end
