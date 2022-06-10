@@ -1,10 +1,13 @@
+require_relative 'question/question.interactor'
+require_relative 'question/question.aws.gateway'
+require_relative 'leaderboard/leaderboard.interactor'
+require_relative 'leaderboard/leaderboard.aws.gateway'
 require "sinatra"
 require "json"
 require "faraday"
 
-LEADERBOARD_GW = "https://ialplejff9.execute-api.us-east-1.amazonaws.com/default/LeaderboardService"
-CREATE_LEADERBOARD_GW = "https://2lzsjb9r4b.execute-api.us-east-1.amazonaws.com"
-QUESTIONS_GW = "https://35y97qpr5j.execute-api.us-east-1.amazonaws.com/default/QuestionServer?n=1"
+$leaderboard_interactor = LeaderboardInteractor.new(LeaderboardAwsGateway.instance)
+$question_interactor = QuestionInteractor.new(QuestionAwsGateway.instance)
 
 set :sessions, true
 
@@ -12,33 +15,14 @@ get "/" do
   erb :index
 end
 
-def get_leaderboard
-  response = Faraday.get(LEADERBOARD_GW)
-  @data = []
-  if response.success?
-    @data = JSON.parse(response.body).map do |entry|
-      JSON.parse entry
-    end
-  end
-  @data
-end
 
 get "/leaderboard" do
-  @data = get_leaderboard
+  @data = $leaderboard_interactor.all
   erb :leaderboard
 end
 
 post "/leaderboard" do
-  conn = Faraday.new(
-    url: CREATE_LEADERBOARD_GW,
-    headers: { "Content-Type" => "application/json" },
-  )
-
-  response = conn.post("/default/CreateLeaderboard") do |req|
-    req.body = JSON.dump({ username: params[:username],
-                           score: params[:score].to_i,
-                           num_of_questions: params[:num_of_questions].to_i })
-  end
+  response = $leaderboard_interactor.create(params)
   p response
   unless response.success?
     @error_message = "#{response.body}\n#{response.reason_phrase}"
@@ -79,10 +63,5 @@ post "/quiz" do
 end
 
 def fetch_questions(n)
-  response = Faraday.get(QUESTIONS_GW, { n: n })
-  unless response.success?
-    @error_message = "Something went wrong please try again"
-    return erb :error
-  end
-  JSON.parse response.body
+  $question_interactor.all(n)
 end
