@@ -62,8 +62,14 @@ rdoc-image:https://mermaid.ink/img/pako:eNpljz0PgjAQQP9Kc6sQ9g4s6kaiCY5djvbQmn5g
 === Development view
 
     front/
+        ├─ leaderboard
+        |     ├─ leaderboard.aws.gateway.rb
+        |     └─ leaderboard.interactor.rb
+        ├─ question
+        |     ├─ question.aws.gateway.rb
+        |     └─ question.interactor.rb
         ├─ public/
-        |      └─ main.css
+        |     └─ main.css
         ├─ views/
         |     ├─ error.erb
         |     ├─ index.erb
