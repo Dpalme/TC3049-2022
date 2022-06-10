@@ -4,11 +4,11 @@
     <title>Quiz final score <%=@score %></title>
     <link rel="stylesheet" href="https://dpalmer.in/Peoria/css/peoria-0-6-2.min.css">
     <link href="./main.css" rel="stylesheet">
-    <script src="https://dpalmer.in/Peoria/peoria-4.js"></script>
+    
   </head>
   <body>
     <nav class="night navbar">
-        <img height="32" scr="" alt="Logo">
+        <img height="32" src="../logo.svg" alt="Logo">
         <div class="navmenu">
             <a class="navlink active" href="/">Quiz</a>
             <a class="navlink" href="/leaderboard">Leaderboard</a>
@@ -18,6 +18,8 @@
         <h1>Kahoot 2</h1>
         <div class="container text-c">
         <h2 class="card mb-lg">Final Score: <%= @score %> / <%= @num_questions %></h2>
+
+        <a href="/quiz?total=<%= @num_questions %>" class="d-block button white blue-btn small p-sm lh-sm">Try again</a>
         <form action="/leaderboard" method="POST">
             <label for="username">Username</label>
             <input type="text" name="username" id="username" placeholder="username"/>

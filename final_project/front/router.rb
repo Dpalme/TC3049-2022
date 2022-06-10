@@ -1,7 +1,7 @@
-require_relative 'question/question.interactor'
-require_relative 'question/question.aws.gateway'
-require_relative 'leaderboard/leaderboard.interactor'
-require_relative 'leaderboard/leaderboard.aws.gateway'
+require_relative "question/question.interactor"
+require_relative "question/question.aws.gateway"
+require_relative "leaderboard/leaderboard.interactor"
+require_relative "leaderboard/leaderboard.aws.gateway"
 require "sinatra"
 require "json"
 require "faraday"
@@ -15,7 +15,6 @@ get "/" do
   erb :index
 end
 
-
 get "/leaderboard" do
   @data = $leaderboard_interactor.all
   erb :leaderboard
@@ -28,7 +27,7 @@ post "/leaderboard" do
     @error_message = "#{response.body}\n#{response.reason_phrase}"
     return erb :error
   end
-  @data = get_leaderboard
+  @data = $leaderboard_interactor.all
   erb :leaderboard
 end
 
