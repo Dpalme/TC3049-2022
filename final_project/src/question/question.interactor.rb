@@ -1,3 +1,10 @@
+# Final Project: Quiz Application with Microservices
+# Date: 10-Jun-2022
+# Authors:
+#          A01747290 Diego Palmerin
+#          A01748354 Fernando Melgar
+
+
 # Question class interactor, user injects the gateway use for query. May be inmemory, sql, aws, etc.
 class QuestionInteractor
 

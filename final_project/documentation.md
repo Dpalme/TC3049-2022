@@ -8,7 +8,7 @@ The microservices are FaaS implementations running in the AWS Cloud and connecte
 
 ### UI/UX Design
 
-![Initial Figma design]("./img/Design.jpg")
+![Initial Figma design]("img/Design.jpg")
 
 We used Diego's Peoria css library to quickly implement a clean simple design while keeping our package size to a minimum. We took inspiration from neumorphism's principles to create a minimalist highly focused UI interface. 
 
@@ -91,8 +91,14 @@ sequenceDiagram
 
 ```
 front
+    L leaderboard
+    |   L leaderboard.aws.gateway.rb
+    |   L leaderboard.interactor.rb
     L public
     |      L main.css
+    L question
+    |      L question.aws.gateway.rb
+    |      L question.interactor.rb
     L views
     |     L error.erb
     |     L index.erb
@@ -100,6 +106,7 @@ front
     |     L questions.erb
     |     L quizScore.erb
     L router.rb
+    
 ```
 
 ```mermaid

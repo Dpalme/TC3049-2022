@@ -1,3 +1,10 @@
+# Final Project: Quiz Application with Microservices
+# Date: 10-Jun-2022
+# Authors:
+#          A01747290 Diego Palmerin
+#          A01748354 Fernando Melgar
+
+
 # Leaderboard interactor class
 class LeaderboardInteractor
   # Using dependency Injection principle we make our logic layer more flexible

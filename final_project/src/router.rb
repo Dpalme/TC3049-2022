@@ -1,7 +1,13 @@
-require_relative "question/question.interactor"
-require_relative "question/question.aws.gateway"
-require_relative "leaderboard/leaderboard.interactor"
-require_relative "leaderboard/leaderboard.aws.gateway"
+# Final Project: Quiz Application with Microservices
+# Date: 10-Jun-2022
+# Authors:
+#          A01747290 Diego Palmerin
+#          A01748354 Fernando Melgar
+
+require_relative 'question/question.interactor'
+require_relative 'question/question.aws.gateway'
+require_relative 'leaderboard/leaderboard.interactor'
+require_relative 'leaderboard/leaderboard.aws.gateway'
 require "sinatra"
 require "json"
 require "faraday"
@@ -14,6 +20,7 @@ set :sessions, true
 get "/" do
   erb :index
 end
+
 
 get "/leaderboard" do
   @data = $leaderboard_interactor.all
